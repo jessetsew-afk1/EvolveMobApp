@@ -1,0 +1,590 @@
+/* Brand wordmark, the pinned journey, and the campaign posters. Loaded after style.css. */
+
+.brand__name {
+  font-weight: 500;
+  font-size: 1.12rem;
+  letter-spacing: 0.24em;
+}
+
+.brand__name i {
+  font-style: normal;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tilt {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.5s var(--ease);
+}
+
+.hero__hint {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #e6c9ff;
+}
+
+.hero__hint i {
+  order: 2;
+  width: 1px;
+  height: 38px;
+  background: linear-gradient(#fff, transparent);
+  transform-origin: 50% 0;
+  animation: drop 1.9s var(--ease) infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: scaleY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+/* ---------- The journey ---------- */
+.trip {
+  position: relative;
+  height: 560vh;
+}
+
+.trip__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  --gutter: max(var(--pad), calc((100vw - 1240px) / 2));
+}
+
+.trip__bg {
+  position: absolute;
+  inset: 0;
+  clip-path: circle(0 at 50% 50%);
+}
+
+.trip__bg img,
+.trip__bg video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.trip__bg > :first-child {
+  opacity: 1;
+}
+
+/* grade every photo into the brand's deep violet */
+.trip__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 6, 26, 0.78), rgba(7, 6, 26, 0.3) 45%, rgba(7, 6, 26, 0.88)),
+    linear-gradient(120deg, rgba(46, 30, 140, 0.5), rgba(139, 63, 184, 0.34), rgba(209, 45, 150, 0.22));
+}
+
+.trip__ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 46vmin;
+  height: 46vmin;
+  margin: -23vmin 0 0 -23vmin;
+  border-radius: 50%;
+  border: 3px solid #efd6ff;
+  box-shadow: 0 0 28px 6px rgba(178, 90, 255, 0.9), inset 0 0 28px 6px rgba(178, 90, 255, 0.7),
+    0 0 110px 18px rgba(209, 45, 150, 0.45);
+  opacity: 0;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  padding: 110px var(--gutter) 60px;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.scene h2 {
+  font-size: clamp(2rem, 4.6vw, 4rem);
+  margin-top: 14px;
+}
+
+.scene__copy > p:not(.eyebrow):not(.scene__kicker),
+.scene--center > p:not(.eyebrow):not(.bigword) {
+  max-width: 460px;
+  margin-top: 18px;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: #ebe5ff;
+}
+
+.scene--missed {
+  opacity: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 4vw;
+}
+
+.scene__kicker {
+  margin-top: 24px;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.6vw, 2.3rem);
+  letter-spacing: -0.02em;
+  opacity: 0;
+}
+
+.missed {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 210px));
+  gap: 18px;
+  justify-content: center;
+}
+
+.missed__card {
+  position: relative;
+  padding-bottom: 14px;
+  border-radius: 18px;
+  background: rgba(17, 15, 43, 0.94);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  rotate: -5deg;
+  will-change: transform, opacity;
+}
+
+.missed__card:nth-child(2) {
+  rotate: 4deg;
+  translate: 0 28px;
+}
+.missed__card:nth-child(3) {
+  rotate: 3deg;
+}
+.missed__card:nth-child(4) {
+  rotate: -4deg;
+  translate: 0 28px;
+}
+
+.missed__card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 10 / 7;
+  object-fit: cover;
+  filter: grayscale(0.6) brightness(0.75);
+}
+
+.missed__card b {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--purple);
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+}
+
+.missed__card h3 {
+  margin: 10px 12px 0;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+
+.missed__card p {
+  margin: 2px 12px 0;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.scene--portal {
+  opacity: 1;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.portal__word,
+.portal__title {
+  grid-area: 1 / 1;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.portal__word {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 5vmin, 3.2rem);
+  letter-spacing: -0.03em;
+}
+
+.scene .portal__title {
+  max-width: 11ch;
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 8vw, 7rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.scene--split {
+  display: flex;
+  align-items: center;
+}
+
+.scene--split .scene__copy {
+  position: relative;
+  max-width: 520px;
+}
+
+.bigword {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  translate: 0 -50%;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 15.5vw;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  will-change: transform, opacity;
+}
+
+.scene--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.scene--center h2 {
+  font-weight: 800;
+  font-size: clamp(2.8rem, 9vw, 7.5rem);
+  letter-spacing: -0.04em;
+}
+
+.bigword--begin {
+  position: static;
+  translate: none;
+  font-size: clamp(5rem, 25vw, 21rem);
+  line-height: 0.9;
+}
+
+.interests {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 640px;
+  margin-top: 30px;
+}
+
+.interests span {
+  padding: 0.55em 1.2em;
+  border-radius: 999px;
+  background: rgba(17, 15, 43, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-weight: 600;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.interests span:nth-child(3n + 1) {
+  background: var(--grad);
+  border-color: transparent;
+}
+
+#trip-cta {
+  opacity: 0;
+}
+
+.trip__phone-pos {
+  position: absolute;
+  right: calc(var(--gutter) + 3vw);
+  top: 50%;
+  height: min(76vh, 660px);
+  aspect-ratio: 473 / 1024;
+  translate: 0 -50%;
+  pointer-events: none;
+}
+
+.trip__phone {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 44px;
+  border: 9px solid #17142f;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14), 0 50px 120px -30px rgba(178, 90, 255, 0.85);
+  transform: translate3d(0, 130%, 0);
+  will-change: transform;
+}
+
+.trip__phone img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trip__phone img + img {
+  opacity: 0;
+}
+
+.trip__rail {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  translate: 0 -50%;
+  display: grid;
+  gap: 6px;
+  z-index: 5;
+}
+
+.trip__rail button {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 4px;
+  background: none;
+  border: 0;
+  font-family: var(--font-accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.trip__rail i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transition: transform 0.35s var(--ease), background-color 0.3s;
+}
+
+.trip__rail span {
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.3s, transform 0.35s var(--ease);
+}
+
+.trip__rail button:hover span,
+.trip__rail .is-active span {
+  opacity: 1;
+  transform: none;
+}
+
+.trip__rail .is-active i {
+  background: #ff5fbf;
+  transform: scale(1.6);
+}
+
+/* ---------- Campaign posters ---------- */
+.posters {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(50px, 9vh, 100px);
+}
+
+.posters img {
+  width: min(24%, 250px);
+  height: auto;
+  margin-inline: -1.2%;
+  border-radius: 18px;
+  box-shadow: 0 0 0 1px var(--line), 0 30px 60px -25px #000;
+  rotate: -7deg;
+  transition: transform 0.5s var(--ease), rotate 0.5s var(--ease), scale 0.5s var(--ease);
+}
+
+.posters img:nth-child(2) {
+  rotate: -2deg;
+  translate: 0 -14px;
+}
+.posters img:nth-child(3) {
+  rotate: 3deg;
+  translate: 0 -14px;
+}
+.posters img:nth-child(4) {
+  rotate: 8deg;
+}
+
+.posters img:hover {
+  position: relative;
+  z-index: 2;
+  rotate: 0deg;
+  scale: 1.08;
+}
+
+.footer a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 860px) {
+  .scene {
+    padding: 104px 20px 24px;
+  }
+
+  .scene h2 {
+    font-size: clamp(1.7rem, 7.6vw, 2.7rem);
+  }
+
+  .scene--missed {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 26px;
+  }
+
+  .missed {
+    grid-template-columns: repeat(2, minmax(0, 150px));
+    gap: 12px;
+  }
+
+  .missed__card p {
+    display: none;
+  }
+
+  .scene--split {
+    align-items: flex-start;
+  }
+
+  .scene--center h2 {
+    font-size: clamp(2.8rem, 15vw, 5rem);
+  }
+
+  .bigword {
+    top: 36%;
+    font-size: 19vw;
+  }
+
+  .bigword--begin {
+    font-size: 30vw;
+  }
+
+  .trip__phone-pos {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -9vh;
+    height: 56vh;
+    translate: -50% 0;
+  }
+
+  .trip__phone {
+    border-width: 7px;
+    border-radius: 34px;
+  }
+
+  .trip__rail {
+    left: 20px;
+    right: 20px;
+    top: 74px;
+    translate: none;
+    display: flex;
+    gap: 6px;
+  }
+
+  .trip__rail button {
+    flex: 1;
+    padding: 8px 0;
+  }
+
+  .trip__rail span {
+    display: none;
+  }
+
+  .trip__rail i {
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+  }
+
+  .trip__rail .is-active i {
+    transform: none;
+  }
+
+  .posters {
+    justify-content: flex-start;
+    gap: 14px;
+    margin-inline: calc(var(--pad) * -1);
+    padding: 10px var(--pad) 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .posters img,
+  .posters img:nth-child(n) {
+    flex: none;
+    width: 64vw;
+    margin: 0;
+    rotate: none;
+    translate: none;
+    scroll-snap-align: center;
+  }
+}
+
+/* ---------- Store badges ---------- */
+.store {
+  gap: 0.7em;
+  min-width: 190px;
+  padding: 0.6em 1.2em 0.6em 1em;
+  border-radius: 12px;
+  border: 1px solid #a6a6a6;
+  background: #000;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.32rem;
+  letter-spacing: -0.01em;
+}
+
+.store svg {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  fill: unset;
+  stroke: unset;
+  stroke-width: unset;
+}
+
+.store small {
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  opacity: 1;
+}
+
+.store--android small {
+  text-transform: uppercase;
+}
+
+.store:hover {
+  border-color: #fff;
+}

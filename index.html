@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evolve — Be there. Together.</title>
+    <meta
+      name="description"
+      content="Evolve is the simplest way to discover and share the best live experiences happening around you. Find tonight's events, host your own, and meet people who share your passions."
+    />
+    <meta name="theme-color" content="#07061A" />
+    <meta property="og:title" content="Evolve — Be there. Together." />
+    <meta
+      property="og:description"
+      content="Discover and share the best live experiences happening around you, in real time."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/trip.css" />
+  </head>
+  <body>
+    <!-- Shared logo artwork -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="g-brand" gradientUnits="userSpaceOnUse" x1="400" y1="0" x2="905" y2="0">
+          <stop offset="0" stop-color="#4658D8" />
+          <stop offset=".55" stop-color="#8B3FB8" />
+          <stop offset="1" stop-color="#D12D96" />
+        </linearGradient>
+        <mask id="m-ring" maskUnits="userSpaceOnUse" x="372" y="290" width="560" height="580">
+          <rect x="372" y="290" width="560" height="580" fill="#fff" />
+          <rect x="372" y="560" width="134" height="68" fill="#000" />
+          <rect x="772" y="628" width="160" height="40" fill="#000" />
+        </mask>
+      </defs>
+      <symbol id="mark" viewBox="372 290 540 566">
+        <circle class="mark-dot" cx="418" cy="337" r="37" fill="#D12D96" />
+        <circle cx="650" cy="595" r="201" fill="none" stroke="url(#g-brand)" stroke-width="102" mask="url(#m-ring)" />
+        <polygon points="548,618 882,502 901,628 548,628" fill="url(#g-brand)" />
+        <polygon points="782,520 882,502 790,535" fill="#5E2380" opacity=".8" />
+      </symbol>
+    </svg>
+
+    <canvas id="bg" aria-hidden="true"></canvas>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+    <header class="nav" id="nav">
+      <a class="brand" href="#top" aria-label="Evolve home">
+        <svg class="brand__mark" aria-hidden="true"><use href="#mark" /></svg>
+        <span class="brand__name">EV<i>O</i>LVE</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#trip">The journey</a>
+        <a href="#tonight">Tonight</a>
+        <a href="#host">Host</a>
+        <a href="#story">Our story</a>
+      </nav>
+      <a class="btn btn--primary btn--sm" href="#get" data-link="download">Get the app</a>
+    </header>
+
+    <main id="top">
+      <!-- 01 · Hero -->
+      <section class="hero" id="hero">
+        <div class="hero__cards" aria-hidden="true">
+          <article class="float-card float-card--a" data-depth="34">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&amp;fit=crop&amp;w=460&amp;h=220&amp;q=70" alt="" width="230" height="110" decoding="async" />
+            <span class="live"><i></i>Live now</span>
+            <h3>Rooftop Vinyl Sessions</h3>
+            <p>0.4 mi · 86 going</p>
+          </article>
+          <article class="float-card float-card--b" data-depth="-26">
+            <img src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&amp;fit=crop&amp;w=460&amp;h=220&amp;q=70" alt="" width="230" height="110" decoding="async" />
+            <span class="live live--soon">Starts 9:30</span>
+            <h3>Neon Gallery Crawl</h3>
+            <p>1.1 mi · 41 going</p>
+          </article>
+          <article class="float-card float-card--c" data-depth="-44">
+            <img src="https://images.unsplash.com/photo-1535898331935-2d274aff0fbc?auto=format&amp;fit=crop&amp;w=460&amp;h=220&amp;q=70" alt="" width="230" height="110" decoding="async" />
+            <span class="live"><i></i>Live now</span>
+            <h3>Late Night Ramen Pop-Up</h3>
+            <p>0.7 mi · 120 going</p>
+          </article>
+          <article class="float-card float-card--d" data-depth="22">
+            <img src="https://images.unsplash.com/photo-1664388854965-ac27572aa499?auto=format&amp;fit=crop&amp;w=460&amp;h=220&amp;q=70" alt="" width="230" height="110" decoding="async" />
+            <span class="live live--soon">Tomorrow</span>
+            <h3>Sunrise Run Club</h3>
+            <p>2.0 mi · 33 going</p>
+          </article>
+        </div>
+
+        <div class="hero__inner">
+          <p class="eyebrow hero__eyebrow"><i class="pulse-dot"></i>Live experiences · happening near you</p>
+          <h1 class="hero__title">
+            <span class="line"><span>Be there.</span></span>
+            <span class="line"><span class="grad">Together.</span></span>
+          </h1>
+          <p class="hero__sub">
+            Evolve is the simplest way to discover and share the best live experiences happening around you. Find
+            tonight's plans, meet your people, and plug into your city's heartbeat.
+          </p>
+          <div class="hero__cta">
+            <a class="store store--ios" aria-label="Download on the App Store" href="#get" data-link="ios">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" /></svg>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+            <a class="store store--android" aria-label="Get it on Google Play" href="#get" data-link="android">
+              <svg viewBox="0 0 24 24" aria-hidden="true" stroke-linejoin="round" stroke-width="1.6">
+                <path fill="#4285f4" stroke="#4285f4" d="M4 2.4 13.4 12 4 21.6z" />
+                <path fill="#ea4335" stroke="#ea4335" d="M4 2.4 16.6 9.4 13.4 12z" />
+                <path fill="#34a853" stroke="#34a853" d="M4 21.6 16.6 14.6 13.4 12z" />
+                <path fill="#fbbc04" stroke="#fbbc04" d="M16.6 9.4 21 12 16.6 14.6 13.4 12z" />
+              </svg>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+          </div>
+          <a class="hero__hint" href="#trip"><i></i>Scroll to step out</a>
+        </div>
+
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee__track">
+            <span>Live music</span><span>Rooftop sets</span><span>Open mics</span><span>Pop-ups</span
+            ><span>Gallery nights</span><span>Pick-up games</span><span>Watch parties</span><span>Run clubs</span
+            ><span>House shows</span><span>Night markets</span> <span>Live music</span><span>Rooftop sets</span
+            ><span>Open mics</span><span>Pop-ups</span><span>Gallery nights</span><span>Pick-up games</span
+            ><span>Watch parties</span><span>Run clubs</span><span>House shows</span><span>Night markets</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 · The journey (pinned, scroll-driven) -->
+      <section class="trip" id="trip" aria-label="A night with Evolve">
+        <div class="trip__stage" id="trip-stage">
+          <div class="trip__bg" id="trip-bg" aria-hidden="true">
+            <img alt="" decoding="async" /><img alt="" decoding="async" /><img alt="" decoding="async" /><img
+              alt=""
+              decoding="async"
+            /><img alt="" decoding="async" />
+          </div>
+          <div class="trip__ring" id="trip-ring" aria-hidden="true"></div>
+
+          <div class="scene scene--missed" data-scene="missed">
+            <div class="scene__copy">
+              <p class="eyebrow">Sound familiar?</p>
+              <h2>Why do we miss <span class="grad">amazing events</span> happening around us?</h2>
+              <p class="scene__kicker" id="trip-kicker">Stop missing moments.</p>
+            </div>
+            <div class="missed" aria-hidden="true">
+              <article class="missed__card">
+                <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&amp;fit=crop&amp;w=400&amp;h=280&amp;q=70" alt="" loading="lazy" decoding="async" />
+                <b>Missed</b>
+                <h3>Music Festival</h3>
+                <p>Last Saturday</p>
+              </article>
+              <article class="missed__card">
+                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&amp;fit=crop&amp;w=400&amp;h=280&amp;q=70" alt="" loading="lazy" decoding="async" />
+                <b>Missed</b>
+                <h3>Rooftop Session</h3>
+                <p>Two blocks away</p>
+              </article>
+              <article class="missed__card">
+                <img src="https://images.unsplash.com/photo-1569783721854-33a99b4c0bae?auto=format&amp;fit=crop&amp;w=400&amp;h=280&amp;q=70" alt="" loading="lazy" decoding="async" />
+                <b>Missed</b>
+                <h3>Gallery Night</h3>
+                <p>Friends were there</p>
+              </article>
+              <article class="missed__card">
+                <img src="https://images.unsplash.com/photo-1664388854965-ac27572aa499?auto=format&amp;fit=crop&amp;w=400&amp;h=280&amp;q=70" alt="" loading="lazy" decoding="async" />
+                <b>Missed</b>
+                <h3>Sunrise Meetup</h3>
+                <p>Saw it on Monday</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="scene scene--portal" data-scene="portal">
+            <p class="portal__word" id="trip-stepout">Step out.</p>
+            <h2 class="portal__title" id="trip-happening">Your city is <span class="grad">already happening.</span></h2>
+          </div>
+
+          <div class="scene scene--split" data-scene="discover">
+            <div class="scene__copy">
+              <p class="eyebrow">01 · Discover</p>
+              <h2>See what's live near you, <span class="grad">right now.</span></h2>
+              <p>Open the map and find events happening around you in real time, a few minutes away.</p>
+            </div>
+          </div>
+
+          <div class="scene scene--split" data-scene="moments">
+            <p class="bigword" id="trip-moments" aria-hidden="true">MOMENTS</p>
+            <div class="scene__copy">
+              <p class="eyebrow">02 · Share</p>
+              <h2>Post your moments. <span class="grad">Fill the room.</span></h2>
+              <p>Share and promote your own events and put them in front of new audiences.</p>
+            </div>
+          </div>
+
+          <div class="scene scene--center" data-scene="connect">
+            <p class="eyebrow">03 · Connect</p>
+            <h2>Find <span class="grad">your people.</span></h2>
+            <p>Meet people who share your interests and passions, and show up already knowing someone.</p>
+            <div class="interests" id="trip-interests" aria-hidden="true">
+              <span>Live music</span><span>Film</span><span>Hoops</span><span>Foodies</span><span>Art</span
+              ><span>Run club</span><span>Nightlife</span><span>Open mics</span>
+            </div>
+          </div>
+
+          <div class="scene scene--center" data-scene="begin">
+            <p class="eyebrow">04 · Never miss out again</p>
+            <p class="bigword bigword--begin" id="trip-begin">BEGIN</p>
+            <div class="hero__cta" id="trip-cta">
+              <a class="store store--ios" aria-label="Download on the App Store" href="#get" data-link="ios">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" /></svg>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+              <a class="store store--android" aria-label="Get it on Google Play" href="#get" data-link="android">
+              <svg viewBox="0 0 24 24" aria-hidden="true" stroke-linejoin="round" stroke-width="1.6">
+                <path fill="#4285f4" stroke="#4285f4" d="M4 2.4 13.4 12 4 21.6z" />
+                <path fill="#ea4335" stroke="#ea4335" d="M4 2.4 16.6 9.4 13.4 12z" />
+                <path fill="#34a853" stroke="#34a853" d="M4 21.6 16.6 14.6 13.4 12z" />
+                <path fill="#fbbc04" stroke="#fbbc04" d="M16.6 9.4 21 12 16.6 14.6 13.4 12z" />
+              </svg>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+            </div>
+          </div>
+
+          <div class="trip__phone-pos" aria-hidden="true">
+            <div class="trip__phone" id="trip-phone">
+              <img data-src="/app/map.webp" alt="" decoding="async" />
+              <img data-src="/app/social.webp" alt="" decoding="async" />
+            </div>
+          </div>
+
+          <nav class="trip__rail" id="trip-rail" aria-label="Journey chapters"></nav>
+        </div>
+      </section>
+
+      <!-- 03 · Manifesto -->
+      <section class="manifesto" aria-label="What Evolve is about">
+        <p class="manifesto__text" id="manifesto">
+          It's not about likes or followers. It's about being there, together.
+        </p>
+      </section>
+
+      <!-- 04 · Tonight -->
+      <section class="tonight" id="tonight">
+        <header class="section-head reveal">
+          <p class="eyebrow">Pick a vibe</p>
+          <h2>What are you into <span class="grad">tonight?</span></h2>
+          <p class="section-head__sub">Tap a vibe and watch your night take shape.</p>
+        </header>
+        <div class="chips reveal" id="chips" role="group" aria-label="Filter events by vibe"></div>
+        <div class="events" id="events" aria-live="polite"></div>
+        <p class="fineprint">Sample events shown for illustration.</p>
+      </section>
+
+      <!-- 05 · Hosts -->
+      <section class="host" id="host">
+        <div class="host__copy reveal">
+          <p class="eyebrow">For promoters, venues &amp; creatives</p>
+          <h2>Got something happening? <span class="grad">Put it on the map.</span></h2>
+          <p>
+            Evolve puts your event in front of people who are out looking for something to do tonight. Build the buzz,
+            reach new audiences, and watch the room fill up.
+          </p>
+          <ul class="ticks">
+            <li>Share and promote your events to people nearby</li>
+            <li>Reach new audiences who share your scene's interests</li>
+            <li>Turn first-timers into regulars</li>
+          </ul>
+        </div>
+
+        <div class="builder reveal">
+          <form class="builder__form" id="builder" autocomplete="off">
+            <p class="eyebrow">Try it · build your event</p>
+            <label>
+              <span>Event name</span>
+              <input type="text" name="name" maxlength="40" placeholder="Backyard Acoustic Night" />
+            </label>
+            <label>
+              <span>Where</span>
+              <input type="text" name="where" maxlength="32" placeholder="Maple St. Courtyard" />
+            </label>
+            <fieldset>
+              <legend>When</legend>
+              <div class="seg" id="builder-when">
+                <button type="button" class="is-on" data-value="Tonight">Tonight</button>
+                <button type="button" data-value="Tomorrow">Tomorrow</button>
+                <button type="button" data-value="This weekend">This weekend</button>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Vibe</legend>
+              <div class="seg" id="builder-vibe"></div>
+            </fieldset>
+          </form>
+
+          <div class="builder__preview">
+            <article class="event-card event-card--preview tilt" id="preview" data-vibe="music">
+              <div class="event-card__cover"><img id="preview-img" alt="" decoding="async" /><span id="preview-word">MUSIC</span></div>
+              <div class="event-card__body">
+                <span class="live"><i></i><b id="preview-when">Tonight</b></span>
+                <h3 id="preview-name">Backyard Acoustic Night</h3>
+                <p id="preview-where">Maple St. Courtyard</p>
+              </div>
+            </article>
+            <a class="btn btn--primary" href="#get" data-link="submit">Submit your event</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 · Founder story -->
+      <section class="story" id="story">
+        <p class="eyebrow reveal">Why we built it</p>
+        <blockquote class="story__quote reveal">"How did I not know about this?"</blockquote>
+        <div class="story__body">
+          <p class="reveal">
+            As college students, we were tired of hearing about incredible events after they happened. That one
+            question sparked Evolve.
+          </p>
+          <p class="reveal">
+            We wanted to build a platform that would make it easy for people to find and create these can't-miss
+            moments in real time, right in their backyard. A tool to transform FOMO into unforgettable nights and new
+            adventures with amazing people.
+          </p>
+          <p class="story__sign reveal">The Evolve founders</p>
+        </div>
+        <div class="posters reveal" aria-label="Evolve campaign artwork">
+          <img class="tilt" src="/brand/poster-missed.webp" alt="Evolve poster: Why do we miss amazing events happening around us?" width="720" height="900" loading="lazy" decoding="async" />
+          <img class="tilt" src="/brand/poster-piece.webp" alt="Evolve poster: Every piece has a place" width="720" height="900" loading="lazy" decoding="async" />
+          <img class="tilt" src="/brand/poster-moments.webp" alt="Evolve poster: Moments" width="720" height="900" loading="lazy" decoding="async" />
+          <img class="tilt" src="/brand/poster-begin.webp" alt="Evolve poster: Begin" width="720" height="900" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <!-- 07 · Final CTA -->
+      <section class="final" id="get">
+        <svg class="final__mark" aria-hidden="true"><use href="#mark" /></svg>
+        <p class="eyebrow reveal">Tonight is already happening</p>
+        <h2 class="final__title reveal">Don't hear about it <span class="grad">tomorrow.</span></h2>
+        <div class="hero__cta reveal">
+          <a class="store store--ios" aria-label="Download on the App Store" href="#" data-link="ios">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" /></svg>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+          <a class="store store--android" aria-label="Get it on Google Play" href="#" data-link="android">
+              <svg viewBox="0 0 24 24" aria-hidden="true" stroke-linejoin="round" stroke-width="1.6">
+                <path fill="#4285f4" stroke="#4285f4" d="M4 2.4 13.4 12 4 21.6z" />
+                <path fill="#ea4335" stroke="#ea4335" d="M4 2.4 16.6 9.4 13.4 12z" />
+                <path fill="#34a853" stroke="#34a853" d="M4 21.6 16.6 14.6 13.4 12z" />
+                <path fill="#fbbc04" stroke="#fbbc04" d="M16.6 9.4 21 12 16.6 14.6 13.4 12z" />
+              </svg>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+        </div>
+        <div class="final__secondary reveal">
+          <a class="btn btn--ghost" href="#" data-link="signup">Create an account</a>
+          <a class="btn btn--ghost" href="#" data-link="submit">Submit an event</a>
+          <button class="btn btn--ghost" type="button" id="share">Share with friends</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand" href="#top" aria-label="Back to top">
+        <svg class="brand__mark" aria-hidden="true"><use href="#mark" /></svg>
+        <span class="brand__name">EV<i>O</i>LVE</span>
+      </a>
+      <p>It's about being there, together.</p>
+      <p class="footer__copy">© <span id="year"></span> Evolve · <a href="https://www.evolvemobapp.com">evolvemobapp.com</a> · Photos via Unsplash</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

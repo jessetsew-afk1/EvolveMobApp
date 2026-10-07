@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="372 290 540 566">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="400" y1="0" x2="905" y2="0">
+      <stop offset="0" stop-color="#4658D8"/>
+      <stop offset=".55" stop-color="#8B3FB8"/>
+      <stop offset="1" stop-color="#D12D96"/>
+    </linearGradient>
+    <mask id="m" maskUnits="userSpaceOnUse" x="372" y="290" width="560" height="580">
+      <rect x="372" y="290" width="560" height="580" fill="#fff"/>
+      <rect x="372" y="560" width="134" height="68" fill="#000"/>
+      <rect x="772" y="628" width="160" height="40" fill="#000"/>
+    </mask>
+  </defs>
+  <circle cx="418" cy="337" r="37" fill="#D12D96"/>
+  <circle cx="650" cy="595" r="201" fill="none" stroke="url(#g)" stroke-width="102" mask="url(#m)"/>
+  <polygon points="548,618 882,502 901,628 548,628" fill="url(#g)"/>
+</svg>
