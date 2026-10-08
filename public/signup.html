@@ -60,6 +60,9 @@ button:disabled{opacity:.6;cursor:default}
 .done h2{font-size:24px}
 .admin{margin-top:22px;font-size:13px;color:var(--muted);text-align:center}
 .admin b{color:var(--fg);font-variant-numeric:tabular-nums}
+a.btn{display:block;text-align:center;text-decoration:none;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.03em;color:#fff;background:var(--grad);border-radius:12px;padding:14px 20px;margin-top:20px}
+a.btn:hover{filter:brightness(1.08)}
+a.btn:focus-visible{outline:3px solid color-mix(in srgb,var(--violet) 45%,transparent);outline-offset:2px}
 @media (max-width:760px){
   .shell{grid-template-columns:1fr}
   .brand{padding:28px 22px;gap:20px}.form{padding:28px 22px}
@@ -165,7 +168,7 @@ $("signup").addEventListener("submit",async ev=>{
     const r=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body.toString()});
     if(!r.ok) throw new Error(r.status);
     const name=$("first").value.trim();
-    $("formWrap").innerHTML=`<div class="done"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#1f4aa0"/><stop offset="1" stop-color="#b0399a"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(#gc)"/><path d="M19 33l9 9 17-19" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><h2></h2><p class="sub">We saved your details. We will email you when Evolve is ready.</p></div>`;
+    $("formWrap").innerHTML=`<div class="done"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#1f4aa0"/><stop offset="1" stop-color="#b0399a"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(#gc)"/><path d="M19 33l9 9 17-19" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><h2></h2><p class="sub">Next, tell us about the event you want to host.</p><a class="btn" href="/host.html">Continue to host form</a></div>`;
     $("formWrap").querySelector("h2").textContent="You're in, "+name+".";
   }catch(e){
     btn.disabled=false; btn.textContent="Sign up";
