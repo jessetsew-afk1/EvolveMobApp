@@ -143,7 +143,7 @@ button:disabled{opacity:.6;cursor:default}
 </main>
 
 <script>
-const INTERESTS=["Live music","Sports","Food & drink","Arts","Nightlife","Wellness","Tech","Outdoors"];
+const INTERESTS=["Live music","Sports","Food & drink","Arts","Nightlife","Wellness","Tech","Outdoors","Others"];
 const $=id=>document.getElementById(id);
 $("interests").innerHTML=INTERESTS.map((t,i)=>`<input type="checkbox" id="int${i}" name="interests" value="${t}"><label for="int${i}">${t}</label>`).join("");
 function setErr(id,msg){ $("e-"+id).textContent=msg||""; $(id).setAttribute("aria-invalid",msg?"true":"false"); }
