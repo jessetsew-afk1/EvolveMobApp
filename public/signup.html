@@ -60,15 +60,6 @@ button:disabled{opacity:.6;cursor:default}
 .done h2{font-size:24px}
 .admin{margin-top:22px;font-size:13px;color:var(--muted);text-align:center}
 .admin b{color:var(--fg);font-variant-numeric:tabular-nums}
-.host{border:1.5px solid var(--line);border-radius:14px;padding:18px 16px 4px;margin:0 0 16px;min-width:0;background:color-mix(in srgb,var(--violet) 5%,transparent)}
-.host[hidden]{display:none}
-.host legend{font-family:var(--display);font-weight:700;font-size:15px;padding:0 8px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.host h3{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin:6px 0 12px}
-.host .hint{font-size:12.5px;color:var(--muted);margin:0}
-textarea{resize:vertical;min-height:84px}
-input[type=file]{padding:9px 10px;cursor:pointer}
-input[type=file]::file-selector-button{font-family:var(--display);font-weight:600;font-size:12.5px;border:0;border-radius:8px;padding:7px 12px;margin-right:10px;color:#fff;background:var(--grad);cursor:pointer}
-.files{font-size:12.5px;color:var(--muted)}
 @media (max-width:760px){
   .shell{grid-template-columns:1fr}
   .brand{padding:28px 22px;gap:20px}.form{padding:28px 22px}
@@ -123,7 +114,7 @@ input[type=file]::file-selector-button{font-family:var(--display);font-weight:60
   <section class="form" id="formWrap">
     <h2>Create your account</h2>
     <p class="sub">It takes about a minute.</p>
-    <form id="signup" name="signup" method="POST" enctype="multipart/form-data" action="/signup-thanks.html" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <form id="signup" name="signup" method="POST" action="/signup-thanks.html" data-netlify="true" netlify-honeypot="bot-field" novalidate>
       <input type="hidden" name="form-name" value="signup">
       <p hidden><label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <div class="row">
@@ -144,39 +135,6 @@ input[type=file]::file-selector-button{font-family:var(--display);font-weight:60
         </select><span class="err" id="e-role"></span></div>
       <div class="f" role="group" aria-labelledby="int-l"><span class="lbl" id="int-l">Interests</span>
         <div class="chips" id="interests"></div></div>
-      <fieldset class="host" id="hostBox" hidden disabled>
-        <legend>Tell us about your event</legend>
-        <h3>Event details</h3>
-        <div class="f"><label for="evName">Event name</label><input id="evName" name="eventName" maxlength="120"><span class="err" id="e-evName"></span></div>
-        <div class="f"><label for="evDesc">Description</label><textarea id="evDesc" name="eventDescription" maxlength="1500" placeholder="What will happen, and who is it for?"></textarea><span class="err" id="e-evDesc"></span></div>
-        <h3>When and where</h3>
-        <div class="row">
-          <div class="f"><label for="evDate">Date</label><input id="evDate" name="eventDate" type="date"><span class="err" id="e-evDate"></span></div>
-          <div class="f"><label for="evTime">Start time</label><input id="evTime" name="eventTime" type="time"><span class="err" id="e-evTime"></span></div>
-        </div>
-        <div class="f"><label for="evPlace">Location</label><input id="evPlace" name="eventLocation" autocomplete="off" placeholder="Venue name and address"><span class="err" id="e-evPlace"></span></div>
-        <h3>Category</h3>
-        <div class="f"><label for="evCat">Event category or type</label><select id="evCat" name="eventCategory"><option value="">Select one</option><option>Music</option><option>Art</option><option>Sports</option><option>Food &amp; drink</option><option>Nightlife</option><option>Wellness</option><option>Tech</option><option>Outdoors</option><option>Community</option><option>Other</option></select><span class="err" id="e-evCat"></span></div>
-        <h3>Tickets</h3>
-        <div class="row">
-          <div class="f"><label for="evTicket">Ticket type</label><select id="evTicket" name="ticketType"><option value="">Select one</option><option value="free">Free</option><option value="paid">Paid</option></select><span class="err" id="e-evTicket"></span></div>
-          <div class="f" id="priceWrap" hidden><label for="evPrice">Price per ticket (USD)</label><input id="evPrice" name="ticketPrice" type="number" min="0" step="0.01" inputmode="decimal"><span class="err" id="e-evPrice"></span></div>
-        </div>
-        <div class="f"><label for="evCap">Tickets available</label><input id="evCap" name="ticketsAvailable" type="number" min="1" step="1" inputmode="numeric" placeholder="Total number of tickets or spots"><span class="err" id="e-evCap"></span></div>
-        <h3>Organizer contact</h3>
-        <div class="f"><label for="hostName">Organizer or host name</label><input id="hostName" name="hostName" autocomplete="organization"><span class="err" id="e-hostName"></span></div>
-        <div class="row">
-          <div class="f"><label for="hostEmail">Contact email</label><input id="hostEmail" name="hostEmail" type="email" autocomplete="off"><span class="err" id="e-hostEmail"></span></div>
-          <div class="f"><label for="hostPhone">Contact phone (optional)</label><input id="hostPhone" name="hostPhone" type="tel" autocomplete="off"><span class="err" id="e-hostPhone"></span></div>
-        </div>
-        <h3>Images</h3>
-        <div class="f"><label for="evImages">Event photos or promotional graphics</label>
-          <input id="evImages" name="eventImages" type="file" accept="image/png,image/jpeg,image/webp" multiple>
-          <p class="hint">Up to 4 images, 6 MB total. JPG, PNG or WebP, at least 1200 px wide works best.</p>
-          <span class="files" id="fileList"></span><span class="err" id="e-evImages"></span></div>
-        <h3>Anything else</h3>
-        <div class="f"><label for="evNotes">Additional details or special instructions for attendees</label><textarea id="evNotes" name="eventNotes" maxlength="1500" placeholder="Parking, dress code, age limit, accessibility, what to bring..."></textarea><span class="err" id="e-evNotes"></span></div>
-      </fieldset>
       <label class="consent" style="text-transform:none;letter-spacing:0;font-family:var(--body);font-weight:400;font-size:13.5px">
         <input type="checkbox" id="consent" name="consent" value="yes"> <span>I agree to receive updates from Evolve and accept the terms of use.</span></label>
       <span class="err" id="e-consent"></span>
@@ -201,42 +159,15 @@ function validate(){
   $("e-consent").textContent=$("consent").checked?"":"Please accept to continue."; if(!$("consent").checked) ok=false;
   return ok;
 }
-const MAX_FILES=4, MAX_BYTES=6*1024*1024;
-function hostOn(){ const v=$("role").value; return v==="Host events"||v==="Both discover and host"; }
-function syncHost(){ const on=hostOn(); $("hostBox").hidden=!on; $("hostBox").disabled=!on; }
-function syncPrice(){ const paid=$("evTicket").value==="paid"; $("priceWrap").hidden=!paid; $("evPrice").disabled=!paid; }
-$("role").addEventListener("change",syncHost);
-$("evTicket").addEventListener("change",syncPrice);
-syncHost(); syncPrice();
-$("evImages").addEventListener("change",()=>{
-  const fs=[...$("evImages").files];
-  $("fileList").textContent=fs.map(f=>f.name).join(", ");
-  setErr("evImages","");
-});
-function validateHost(){
-  if(!hostOn()) return true;
-  let ok=true;
-  const req=(id,m)=>{const v=$(id).value.trim(); setErr(id,v?"":m); if(!v) ok=false;};
-  req("evName","Enter the event name."); req("evDesc","Describe your event."); req("evDate","Choose a date."); req("evTime","Choose a start time.");
-  req("evPlace","Enter the location."); req("evCat","Choose a category."); req("evTicket","Choose free or paid."); req("hostName","Enter the organizer name.");
-  if($("evTicket").value==="paid"){ const p=parseFloat($("evPrice").value); const good=!isNaN(p)&&p>=0; setErr("evPrice",good?"":"Enter the ticket price."); if(!good) ok=false; }
-  const cap=parseInt($("evCap").value,10); const capOk=cap>=1; setErr("evCap",capOk?"":"Enter how many tickets are available."); if(!capOk) ok=false;
-  const he=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test($("hostEmail").value.trim());
-  setErr("hostEmail",he?"":"Enter a valid contact email."); if(!he) ok=false;
-  const fs=[...$("evImages").files];
-  const total=fs.reduce((a,f)=>a+f.size,0);
-  const fm=fs.length>MAX_FILES?"Choose up to "+MAX_FILES+" images.":total>MAX_BYTES?"Images are over 6 MB in total. Choose smaller files.":"";
-  setErr("evImages",fm); if(fm) ok=false;
-  return ok;
-}
 $("signup").addEventListener("submit",async ev=>{
   ev.preventDefault();
   const st=$("status"); st.className="status"; st.textContent="";
-  if(!(validate()&validateHost())){ st.className="status bad"; st.textContent="Please fix the highlighted fields."; return; }
+  if(!validate()){ st.className="status bad"; st.textContent="Please fix the highlighted fields."; return; }
   const btn=$("submit"); btn.disabled=true; btn.textContent="Signing you up...";
   const fd=new FormData($("signup"));
-    try{
-    const r=await fetch("/",{method:"POST",body:fd});
+  const body=new URLSearchParams(); fd.forEach((v,k)=>body.append(k,v));
+  try{
+    const r=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body.toString()});
     if(!r.ok) throw new Error(r.status);
     const name=$("first").value.trim();
     $("formWrap").innerHTML=`<div class="done"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#1f4aa0"/><stop offset="1" stop-color="#b0399a"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(#gc)"/><path d="M19 33l9 9 17-19" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><h2></h2><p class="sub">We saved your details. We will email you when Evolve is ready.</p></div>`;
