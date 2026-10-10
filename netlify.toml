@@ -1,3 +1,20 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+# Clean URLs for the privacy policy (App Store / Google Play listings)
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy"
+  status = 301
+
+# Account deletion URL for the Google Play listing
+[[redirects]]
+  from = "/delete-account"
+  to = "/privacy#delete-account"
+  status = 301
